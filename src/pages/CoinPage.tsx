@@ -1,33 +1,37 @@
 import ProgressBar from "../ProgressBar";
 import { useEffect, useState } from 'react';
 import { coin, highVoltage, robo, logo } from '../images';
+import { ApiService } from "../services/ApiService";
+import { useParams } from 'react-router-dom';
 import 'animate.css';
 
 const CoinPage = () => {
+  const { token } = useParams();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [points, setPoints] = useState(29857775);
-  const [energy, setEnergy] = useState(2532);
+  const [points, setPoints] = useState(1);
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
   const [welcomeModalVisible, setWelcomeModalVisible] = useState(true);
   const [countdown, setCountdown] = useState(3);
   const [isAnimating, setIsAnimating] = useState(false);
   const pointsToAdd = 1;
-  const energyToReduce = 1;
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (energy - energyToReduce < 0) {
-      return;
-    }
+  const apiService = new ApiService();
+
+  const handleClick = async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
     setPoints(points + pointsToAdd);
-    setEnergy(energy - energyToReduce < 0 ? 0 : energy - energyToReduce);
     setClicks([...clicks, { id: Date.now(), x, y }]);
+
+    if (token) {
+      apiService.increaseCoin(token);
+    }
   };
 
   const handleAnimationEnd = (id: number) => {
