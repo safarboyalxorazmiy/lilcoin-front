@@ -1,15 +1,31 @@
 import ProgressBar from "../ProgressBar";
 import { useEffect, useState } from 'react';
 import { coin, highVoltage, robo, logo } from '../images';
-import { ApiService } from "../services/ApiService";
-import { useParams } from 'react-router-dom';
 import 'animate.css';
+import { ApiService } from "../services/ApiService";
 
 const CoinPage = () => {
-  const { token } = useParams();
+  const apiService = new ApiService();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  });
+
+  useEffect(() => {
+    const asyncFunction = async () => {
+      // @ts-ignore
+      if (window.Telegram && Telegram.WebApp) {
+        // @ts-ignore
+        const user = Telegram.WebApp.initDataUnsafe?.user;
+        
+        if (user) {
+          const token = await apiService.getTokenByUsername(user.username);
+          localStorage.setItem("auth_token", token);
+        }
+      }
+    };
+
+    asyncFunction();
   }, []);
 
   const [points, setPoints] = useState(1);
@@ -19,7 +35,6 @@ const CoinPage = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const pointsToAdd = 1;
 
-  const apiService = new ApiService();
 
   const handleClick = async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -28,10 +43,6 @@ const CoinPage = () => {
 
     setPoints(points + pointsToAdd);
     setClicks([...clicks, { id: Date.now(), x, y }]);
-
-    if (token) {
-      apiService.increaseCoin(token);
-    }
   };
 
   const handleAnimationEnd = (id: number) => {
