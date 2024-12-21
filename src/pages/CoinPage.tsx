@@ -1,34 +1,43 @@
 import ProgressBar from "../ProgressBar";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { coin, highVoltage, robo, logo } from '../images';
 import 'animate.css';
 import { ApiService } from "../services/ApiService";
 
 const CoinPage = () => {
-  const apiService = new ApiService();
+  const apiServiceRef = useRef<ApiService>();
+  const [points, setPoints] = useState(1);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   useEffect(() => {
+    apiServiceRef.current = new ApiService();
+
     const asyncFunction = async () => {
-      // @ts-ignore
-      if (window.Telegram && Telegram.WebApp) {
-        // @ts-ignore
-        const user = Telegram.WebApp.initDataUnsafe?.user;
+      // // @ts-ignore
+      // if (window.Telegram && Telegram.WebApp) {
+      //   // @ts-ignore
+      //   const user = Telegram.WebApp.initDataUnsafe?.user;
         
-        if (user) {
-          const token = await apiService.getTokenByUsername(user.username);
-          localStorage.setItem("auth_token", token);
-        }
-      }
+      //   if (user) {
+      //     const token = await apiServiceRef.current!.getTokenByUsername(user.username);
+      //     localStorage.setItem("username", "manxorazmiyim");
+      //     localStorage.setItem("auth_token", token);
+      //   }
+      // }
+
+      const token = await apiServiceRef.current!.getTokenByUsername("manxorazmiyim");
+      localStorage.setItem("username", "manxorazmiyim");
+      localStorage.setItem("auth_token", token);
+
+      setPoints(await apiServiceRef.current!.coinInfo());
     };
 
     asyncFunction();
   }, []);
 
-  const [points, setPoints] = useState(1);
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
   const [welcomeModalVisible, setWelcomeModalVisible] = useState(true);
   const [countdown, setCountdown] = useState(3);
@@ -43,6 +52,7 @@ const CoinPage = () => {
 
     setPoints(points + pointsToAdd);
     setClicks([...clicks, { id: Date.now(), x, y }]);
+    apiServiceRef.current!.increaseCoin();
   };
 
   const handleAnimationEnd = (id: number) => {
