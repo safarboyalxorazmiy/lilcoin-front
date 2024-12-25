@@ -1,5 +1,5 @@
 export class ApiService {
-  private readonly localUrl = 'http://192.168.0.103:8080';
+  private readonly localUrl = 'http://192.168.0.100:8080';
   // private readonly prodUrl = 'http://62.164.220.205:8080';
   private readonly apiUrl = this.localUrl;
 
@@ -9,7 +9,7 @@ export class ApiService {
     // Dynamically set WebSocket URL based on environment
     const socketUrl = process.env.NODE_ENV === 'production' 
       ? 'ws://62.164.220.205:8080/ws' 
-      : 'ws://192.168.0.103:8080/ws';
+      : 'ws://192.168.0.100:8080/ws';
     this.socket = new WebSocket(socketUrl);
 
     this.socket.onopen = () => {
@@ -27,11 +27,8 @@ export class ApiService {
 
   public async getTokenByUsername(username: string): Promise<string> {
     try {
-      const response = await fetch(`${this.apiUrl}/api/v1/auth/authenticate/${username}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch(`${this.apiUrl}/api/v1/auth/get/token/${username}`, {
+        method: 'GET'
       });
 
       if (!response.ok) {
@@ -63,13 +60,6 @@ export class ApiService {
       console.error('No token found in localStorage.');
       return 0;
     }
-
-    console.log(
-      {
-        "Authorization": `Bearer ${token}`
-      }
-    )
-
     
     try {
       const response = await fetch(`${this.apiUrl}/coin/info`, {
@@ -90,5 +80,32 @@ export class ApiService {
       throw error;
     }
   }
+
+  public async setUserLang(lang: string): Promise<void> {
+    const token = localStorage.getItem('auth_token');
+    if (!token) {
+      console.error('No token found in localStorage.');
+      return;
+    }
+
+    const apiUrl = `${this.apiUrl}/language/set/${lang}`;
+    
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Failed to set language. Status: ${response.status}`);
+      }
+  
+      console.log(`Language set to ${lang} successfully.`);
+    } catch (error: any) {
+      console.error(`Error setting language: ${error.message}`);
+    }
+  }  
 
 }

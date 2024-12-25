@@ -3,10 +3,12 @@ import { useEffect, useState, useRef } from 'react';
 import { coin, highVoltage, robo, logo } from '../images';
 import 'animate.css';
 import { ApiService } from "../services/ApiService";
+import { Modal } from '@mui/material';
 
 const CoinPage = () => {
   const apiServiceRef = useRef<ApiService>();
   const [points, setPoints] = useState(1);
+  const [isLangModalVisible, setIsLangModalVisible] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -70,12 +72,73 @@ const CoinPage = () => {
       setTimeout(() => {
         setWelcomeModalVisible(false);
         setIsAnimating(false);
-      }, 1000); // Duration of the animation
+
+        let userLang = localStorage.getItem("user_lang");
+        if (!userLang) {
+          setIsLangModalVisible(true);
+        }
+      }, 1000);
     }
   }, [countdown]);
 
   return (
     <div>
+      <Modal 
+        component={"div"} 
+        open={isLangModalVisible} 
+        sx={{ width: "100%", height: "100%", zIndex: 99999 }}>
+        <div className="w-full h-full lang-modal">
+          <h1 className="lang-title">Please select your language</h1>
+
+          <div className="lang-btn-wrapper">
+            <button className="lang-btn" onClick={() => {
+              localStorage.setItem("user_lang", "ENGLISH"); 
+              setIsLangModalVisible(false);
+              apiServiceRef.current!.setUserLang("ENGLISH");
+            }}>
+              <span>English</span>
+              <img src="./lang-btn-1.png" alt="" />
+            </button>
+
+            <button className="lang-btn" onClick={() => {
+              localStorage.setItem("user_lang", "RUSSIAN"); 
+              setIsLangModalVisible(false);
+              apiServiceRef.current!.setUserLang("RUSSIAN");
+            }}>
+              <span>Russian</span>
+              <img src="./lang-btn-2.png" alt="" />
+            </button>
+
+            <button className="lang-btn" onClick={() => {
+              localStorage.setItem("user_lang", "BRAZILIAN"); 
+              setIsLangModalVisible(false);
+              apiServiceRef.current!.setUserLang("BRAZILIAN");
+            }}>
+              <span>Brazilian</span>
+              <img src="./lang-btn-3.png" alt="" />
+            </button>
+
+            <button className="lang-btn" onClick={() => {
+              localStorage.setItem("user_lang", "UZBEK"); 
+              setIsLangModalVisible(false);
+              apiServiceRef.current!.setUserLang("UZBEK");
+            }}>
+              <span>Uzbek</span>
+              <img src="./lang-btn-4.png" alt="" />
+            </button>
+
+            <button className="lang-btn" onClick={() => {
+              localStorage.setItem("user_lang", "INDIAN"); 
+              setIsLangModalVisible(false);
+              apiServiceRef.current!.setUserLang("INDIAN");
+            }}>
+              <span>Indian</span>
+              <img src="./lang-btn-5.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </Modal>
+
       <div
         style={{
           height: "100%",
