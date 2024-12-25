@@ -1,10 +1,14 @@
+import { useTranslation } from 'react-i18next';
+
 const SocialPage = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="social-page">
       <img src={"./logo.svg"} alt="Lil-Coin Logo" className="logo" />
 
-      <h1 className="title">FOLLOW US</h1>
-      <p className="subtitle">ON OUR SOCIAL NETWORKS</p>
+      <h1 className="title">{t("followUs")}</h1>
+      <p className="subtitle">{t("followUs2")}</p>
 
       <div className="social-links">
         <SocialLinkLeft

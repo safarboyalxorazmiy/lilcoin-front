@@ -4,8 +4,11 @@ import { coin, highVoltage, robo, logo } from '../images';
 import 'animate.css';
 import { ApiService } from "../services/ApiService";
 import { Modal } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 const CoinPage = () => {
+  const { t, i18n } = useTranslation();
+
   const apiServiceRef = useRef<ApiService>();
   const [points, setPoints] = useState(1);
   const [isLangModalVisible, setIsLangModalVisible] = useState(false);
@@ -76,7 +79,10 @@ const CoinPage = () => {
         let userLang = localStorage.getItem("user_lang");
         if (!userLang) {
           setIsLangModalVisible(true);
+          return;
         }
+
+        i18n.changeLanguage(userLang);
       }, 1000);
     }
   }, [countdown]);
@@ -93,8 +99,9 @@ const CoinPage = () => {
           <div className="lang-btn-wrapper">
             <button className="lang-btn" onClick={() => {
               localStorage.setItem("user_lang", "ENGLISH"); 
-              setIsLangModalVisible(false);
+              i18n.changeLanguage("ENGLISH");
               apiServiceRef.current!.setUserLang("ENGLISH");
+              setIsLangModalVisible(false);
             }}>
               <span>English</span>
               <img src="./lang-btn-1.png" alt="" />
@@ -102,8 +109,9 @@ const CoinPage = () => {
 
             <button className="lang-btn" onClick={() => {
               localStorage.setItem("user_lang", "RUSSIAN"); 
-              setIsLangModalVisible(false);
+              i18n.changeLanguage("RUSSIAN");
               apiServiceRef.current!.setUserLang("RUSSIAN");
+              setIsLangModalVisible(false);
             }}>
               <span>Russian</span>
               <img src="./lang-btn-2.png" alt="" />
@@ -111,8 +119,9 @@ const CoinPage = () => {
 
             <button className="lang-btn" onClick={() => {
               localStorage.setItem("user_lang", "BRAZILIAN"); 
-              setIsLangModalVisible(false);
+              i18n.changeLanguage("BRAZILIAN");
               apiServiceRef.current!.setUserLang("BRAZILIAN");
+              setIsLangModalVisible(false);
             }}>
               <span>Brazilian</span>
               <img src="./lang-btn-3.png" alt="" />
@@ -120,17 +129,19 @@ const CoinPage = () => {
 
             <button className="lang-btn" onClick={() => {
               localStorage.setItem("user_lang", "UZBEK"); 
-              setIsLangModalVisible(false);
+              i18n.changeLanguage("UZBEK");
               apiServiceRef.current!.setUserLang("UZBEK");
+              setIsLangModalVisible(false);
             }}>
               <span>Uzbek</span>
               <img src="./lang-btn-4.png" alt="" />
             </button>
 
             <button className="lang-btn" onClick={() => {
-              localStorage.setItem("user_lang", "INDIAN"); 
-              setIsLangModalVisible(false);
+              localStorage.setItem("user_lang", "INDIAN");
+              i18n.changeLanguage("INDIAN");
               apiServiceRef.current!.setUserLang("INDIAN");
+              setIsLangModalVisible(false);
             }}>
               <span>Indian</span>
               <img src="./lang-btn-5.png" alt="" />
@@ -161,7 +172,7 @@ const CoinPage = () => {
           className="animate__animated animate__zoomInUp"
           style={{ fontSize: "60px", textAlign: "center" }}
         >
-          Welcome to LilCoin! {countdown}
+          {t("welcome")} {countdown}
         </h1>
       </div>
 
@@ -207,7 +218,7 @@ const CoinPage = () => {
 
             <div className="flex items-center gap-2">
               <img src={robo} width={40} />
-              <span className="text-2xl font-bold">LEVEL 5</span>
+              <span className="text-2xl font-bold">{t("level")} 5</span>
             </div>
           </div>
       </div>

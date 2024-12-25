@@ -1,19 +1,22 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const InvitePage: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Invite friends!</h1>
-      <p style={styles.subtitle}>you and your friends will receive bonuses</p>
+      <h1 style={styles.title}>{t("inviteFriendsTitle")}</h1>
+      <p style={styles.subtitle}>{t("inviteFriendsTitle2")}</p>
 
       <div style={styles.card}>
         <img src="./gift-icon-1.svg" alt="Gift" style={styles.icon} />
-        <span style={styles.cardText}>Invite a friend</span>
+        <span style={styles.cardText}>{t("inviteAFriend")}</span>
       </div>
 
       <div style={styles.footer}>
         <button style={styles.button}>
-          <span>Invite a friend </span>         
+          <span>{t("inviteAFriend")}</span>         
           <img src="./invite-icon.svg" alt="" />
         </button>
         <button style={styles.button2}>
