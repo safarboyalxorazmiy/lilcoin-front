@@ -11,5 +11,9 @@
   "currentPrice": "Preço atual:",
   "tapTitle": "Você receberá 2 moedas por cada TOQUE. Seu nível:",
   "advertisementTitle": "Seu anúncio aqui",
-  "contactUs": "Contate-nos"
+  "contactUs": "Contate-nos",
+  "boostSuccessModalTitle": "Sucesso!",
+  "boostSuccessModalTitle2": "Seu boost foi ativado, agora seu nível é ",
+  "boostErrorModalTitle": "Ops!",
+  "boostErrorModalTitle2": "Seu boost falhou. Ganhe mais LILCOIN!"
 }

@@ -116,8 +116,25 @@ export class ApiService {
       return false;
     }
 
-    
-    return true;
+    const apiUrl = 'http://192.168.0.100:8080/level/upgrade';
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        return false;
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error: any) {
+      return false;
+    }
   }
   
   public async getLevelInfo(): Promise<Object | null> {
@@ -134,7 +151,6 @@ export class ApiService {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
         },
       });
   

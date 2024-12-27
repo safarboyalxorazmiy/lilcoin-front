@@ -11,5 +11,9 @@
   "currentPrice": "Hozirgi narx",
   "tapTitle": "Siz har bir bosganingiz uchun 2 tangaga ega bo'lasiz. Sizning bosqichingiz:",
   "advertisementTitle": "Bu yerda sizni reklamangiz bo'lishi mumkin edi",
-  "contactUs": "Biz bilan bog'laning"
+  "contactUs": "Biz bilan bog'laning",
+  "boostSuccessModalTitle": "Muvaqqiyatli!",
+  "boostSuccessModalTitle2": "Sizning boostingiz faollashtirildi, endi sizning bosqichingiz ",
+  "boostErrorModalTitle": "Xatolik",
+  "boostErrorModalTitle2": "Sizning boostingiz muvaffaqiyatsizlikka uchradi. Ko'proq LILCOIN yig'ing!"
 }

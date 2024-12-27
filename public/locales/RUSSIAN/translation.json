@@ -11,5 +11,9 @@
   "currentPrice": "Текущая цена",
   "tapTitle": "Вы получаете 2 монеты за каждый нажатие. Ваш этап:",
   "advertisementTitle": "Здесь была бы ваша реклама",
-  "contactUs": "Свяжитесь с нами"
+  "contactUs": "Свяжитесь с нами",
+  "boostSuccessModalTitle": "Успех",
+  "boostSuccessModalTitle2": "Ваш буст был активирован, теперь ваш уровень - ",
+  "boostErrorModalTitle": "Ой",
+  "boostErrorModalTitle2": "Ваш буст не удался. Заработайте больше LILCOIN!"
 }

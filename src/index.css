@@ -349,3 +349,60 @@ body {
   width: 62px;
   height: 62px;
 }
+
+.game-modal {
+  position: fixed;
+  bottom: 15%;
+  /*left: 50%;
+  transform: translate(-50%, -50%); */
+  width: calc(100% - 2rem);
+  padding: 30px;
+  background: radial-gradient(circle, #FFF, #FFF);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  z-index: 1000;
+  animation: pulse 1s infinite alternate;
+}
+
+.success-modal {
+  border: 3px solid #4caf50;
+  box-shadow: 0 0 30px #4caf50, inset 0 0 15px #4caf50;
+}
+
+.error-modal {
+  border: 3px solid #f44336;
+  box-shadow: 0 0 30px #f44336, inset 0 0 15px #f44336;
+}
+
+.modal-content {
+  color: #000;
+  font-family: 'Press Start 2P', cursive; /* Add a game-inspired font */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.modal-content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #000; /* Vibrant gold for the heading */
+  text-shadow: 0 0 15px #ffff00, 0 0 20px #ffc107;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  margin-top: 0;
+  color: #000;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Game-like animations */
+@keyframes pulse {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.9;
+  }
+}

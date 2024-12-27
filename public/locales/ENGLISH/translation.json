@@ -11,5 +11,9 @@
   "currentPrice": "Current price:",
   "tapTitle": "You will get 2 coin for each TAP Your level:",
   "advertisementTitle": "Your advertisement here",
-  "contactUs": "Contact us"
+  "contactUs": "Contact us",
+  "boostSuccessModalTitle": "Success",
+  "boostSuccessModalTitle2": "Your boost was activated, Now your level is ",
+  "boostErrorModalTitle": "Oops",
+  "boostErrorModalTitle2": "Your boost failed. Earn more LILCOIN!"
 }

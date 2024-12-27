@@ -11,5 +11,9 @@
   "currentPrice": "वर्तमान मूल्य:",
   "tapTitle": "आपको हर टैप पर 2 सिक्के मिलेंगे। आपका स्तर:",
   "advertisementTitle": "यहां आपका विज्ञापन",
-  "contactUs": "हमसे संपर्क करें"
+  "contactUs": "हमसे संपर्क करें",
+  "boostSuccessModalTitle": "सफलता",
+  "boostSuccessModalTitle2": "अब आपका स्तर है ",
+  "boostErrorModalTitle": "ओह",
+  "boostErrorModalTitle2": "आपका बूस्ट असफल रहा। अधिक LILCOIN अर्जित करें!"
 }
