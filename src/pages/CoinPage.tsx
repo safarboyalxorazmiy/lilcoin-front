@@ -11,7 +11,10 @@ const CoinPage = () => {
 
   const apiServiceRef = useRef<ApiService>();
   const [points, setPoints] = useState(1);
+  const [level, setLevel] = useState(1);
   const [isLangModalVisible, setIsLangModalVisible] = useState(false);
+  const [levelProgressBarPercentage, setLevelProgressBarPercentage] = useState(41);
+  const levelTitles = ["Beginner", "Basic", "Average", "Trained", "Skilled", "Expert", "Master", "Epic", "Legendary", "God"]
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,6 +41,10 @@ const CoinPage = () => {
       localStorage.setItem("auth_token", token);
 
       setPoints(await apiServiceRef.current!.coinInfo());
+
+      const levelInfo: any = await apiServiceRef.current!.getLevelInfo();
+      setLevel(levelInfo?.level);
+      setLevelProgressBarPercentage(((await apiServiceRef.current!.coinInfo() + levelInfo?.level) / 60000) * 100);
     };
 
     asyncFunction();
@@ -47,7 +54,6 @@ const CoinPage = () => {
   const [welcomeModalVisible, setWelcomeModalVisible] = useState(true);
   const [countdown, setCountdown] = useState(3);
   const [isAnimating, setIsAnimating] = useState(false);
-  const pointsToAdd = 1;
 
 
   const handleClick = async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -55,8 +61,9 @@ const CoinPage = () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    setPoints(points + pointsToAdd);
+    setPoints(points + level);
     setClicks([...clicks, { id: Date.now(), x, y }]);
+    setLevelProgressBarPercentage(((points + level) / 60000) * 100);
     apiServiceRef.current!.increaseCoin();
   };
 
@@ -182,7 +189,7 @@ const CoinPage = () => {
           <span className="ml-2">{points.toLocaleString()}</span>
         </div>
 
-        <ProgressBar progress={80} label="LEGENDARY" />
+        <ProgressBar progress={levelProgressBarPercentage} label={levelTitles[level]} />
       </div>
         
       <div className="flex-grow w-full flex items-center justify-center flex-col" style={{height: "110vh", width: "calc(100vw - (40px * 2))", display: "flex", alignItems: "center", justifyContent: "center"}} >
@@ -205,7 +212,7 @@ const CoinPage = () => {
                 }}
                 onAnimationEnd={() => handleAnimationEnd(click.id)}
               >
-                +1
+                +{level}
               </div>
             ))}
           </div>
@@ -218,7 +225,7 @@ const CoinPage = () => {
 
             <div className="flex items-center gap-2">
               <img src={robo} width={40} />
-              <span className="text-2xl font-bold">{t("level")} 5</span>
+              <span className="text-2xl font-bold">{t("level")} {level}</span>
             </div>
           </div>
       </div>
