@@ -108,4 +108,53 @@ export class ApiService {
     }
   }  
 
+
+  public async boostLevel(): Promise<boolean> {
+    const token = localStorage.getItem('auth_token');
+    if (!token) {
+      console.error('No token found in localStorage.');
+      return false;
+    }
+
+    
+    return true;
+  }
+  
+  public async getLevelInfo(): Promise<Object | null> {
+    const token = localStorage.getItem('auth_token');
+    if (!token) {
+      console.error('No token found in localStorage.');
+      return null;
+    }
+  
+    const apiUrl = 'http://192.168.0.100:8080/level/info';
+  
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        console.error(`Error fetching level info: ${response.status} - ${response.statusText}`);
+        return null;
+      }
+  
+      const data = await response.json();
+  
+      const levelInfo = {
+        level: data.level,
+        levelTitle: data.levelTitle,
+        levelPrice: data.levelPrice,
+      };
+  
+      return levelInfo;
+    } catch (error) {
+      console.error('Error during API call:', error);
+      return null;
+    }
+  }  
 }
