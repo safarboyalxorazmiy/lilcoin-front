@@ -15,5 +15,6 @@
   "boostSuccessModalTitle": "Muvaqqiyatli!",
   "boostSuccessModalTitle2": "Sizning boostingiz faollashtirildi, endi sizning bosqichingiz ",
   "boostErrorModalTitle": "Xatolik",
-  "boostErrorModalTitle2": "Sizning boostingiz muvaffaqiyatsizlikka uchradi. Ko'proq LILCOIN yig'ing!"
+  "boostErrorModalTitle2": "Sizning boostingiz muvaffaqiyatsizlikka uchradi. Ko'proq LILCOIN yig'ing!",
+  "boostCompleatedTitle": "Siz boost qilib bo'ldingiz!"
 }

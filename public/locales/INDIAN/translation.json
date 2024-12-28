@@ -15,5 +15,7 @@
   "boostSuccessModalTitle": "सफलता",
   "boostSuccessModalTitle2": "अब आपका स्तर है ",
   "boostErrorModalTitle": "ओह",
-  "boostErrorModalTitle2": "आपका बूस्ट असफल रहा। अधिक LILCOIN अर्जित करें!"
+  "boostErrorModalTitle2": "आपका बूस्ट असफल रहा। अधिक LILCOIN अर्जित करें!",
+  "boostCompleatedTitle": "आपने अपना स्तर सफलतापूर्वक बढ़ावा दिया!"
+
 }

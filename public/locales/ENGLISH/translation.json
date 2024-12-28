@@ -15,5 +15,7 @@
   "boostSuccessModalTitle": "Success",
   "boostSuccessModalTitle2": "Your boost was activated, Now your level is ",
   "boostErrorModalTitle": "Oops",
-  "boostErrorModalTitle2": "Your boost failed. Earn more LILCOIN!"
+  "boostErrorModalTitle2": "Your boost failed. Earn more LILCOIN!",
+  "boostCompleatedTitle": "Your boost was completed!"
+
 }

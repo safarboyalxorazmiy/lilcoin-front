@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { SnackbarProvider, useSnackbar } from 'notistack';
 
 const InvitePage: React.FC = () => {
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
 
   return (
     <div style={styles.container}>
@@ -15,14 +17,18 @@ const InvitePage: React.FC = () => {
       </div>
 
       <div style={styles.footer}>
-        <button style={styles.button}>
+        <button style={styles.button} onClick={() => enqueueSnackbar('Successfully Copied!', { variant: 'success', anchorOrigin: { vertical: 'top', horizontal: 'center' }, autoHideDuration: 1000 })}>
           <span>{t("inviteAFriend")}</span>         
           <img src="./invite-icon.svg" alt="" />
         </button>
-        <button style={styles.button2}>
+
+        <button style={styles.button2} onClick={() => enqueueSnackbar('Failed to copy text.', { variant: 'error', anchorOrigin: { vertical: 'top', horizontal: 'center' }, autoHideDuration: 1000 })}>
           <img src="./copy-icon.svg" alt="" />
         </button>
       </div>
+
+
+
     </div>
   );
 };

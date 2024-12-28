@@ -15,5 +15,6 @@
   "boostSuccessModalTitle": "Успех",
   "boostSuccessModalTitle2": "Ваш буст был активирован, теперь ваш уровень - ",
   "boostErrorModalTitle": "Ой",
-  "boostErrorModalTitle2": "Ваш буст не удался. Заработайте больше LILCOIN!"
+  "boostErrorModalTitle2": "Ваш буст не удался. Заработайте больше LILCOIN!",
+  "boostCompleatedTitle": "Вы успешно забустовали уровень!"
 }
