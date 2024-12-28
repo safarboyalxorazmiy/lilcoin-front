@@ -10,10 +10,12 @@ const CoinPage = () => {
   const { t, i18n } = useTranslation();
 
   const apiServiceRef = useRef<ApiService>();
-  const [points, setPoints] = useState(1);
+  const [points, setPoints] = useState(0);
   const [level, setLevel] = useState(1);
   const [isLangModalVisible, setIsLangModalVisible] = useState(false);
-  const [levelProgressBarPercentage, setLevelProgressBarPercentage] = useState(41);
+  const [levelProgressBarPercentage, setLevelProgressBarPercentage] = useState(0);
+  const [currentDateCoins, setCurrentDateCoins] = useState(0);
+
   const levelTitles = ["Beginner", "Basic", "Average", "Trained", "Skilled", "Expert", "Master", "Epic", "Legendary", "God"]
 
   useEffect(() => {
@@ -45,6 +47,7 @@ const CoinPage = () => {
       const levelInfo: any = await apiServiceRef.current!.getLevelInfo();
       setLevel(levelInfo?.level);
       setLevelProgressBarPercentage(((await apiServiceRef.current!.coinInfo() + levelInfo?.level) / 60000) * 100);
+      await apiServiceRef.current!.coinInfoByCurrentDate().then((data) => setCurrentDateCoins(data));
     };
 
     asyncFunction();
@@ -61,7 +64,13 @@ const CoinPage = () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
+    if (currentDateCoins >= 30000) {
+      return;
+    }
+
     setPoints(points + level);
+    setCurrentDateCoins(currentDateCoins + level);
+
     setClicks([...clicks, { id: Date.now(), x, y }]);
     setLevelProgressBarPercentage(((points + level) / 60000) * 100);
     apiServiceRef.current!.increaseCoin();
@@ -189,7 +198,8 @@ const CoinPage = () => {
           <span className="ml-2">{points.toLocaleString()}</span>
         </div>
 
-        <ProgressBar progress={levelProgressBarPercentage} label={levelTitles[level]} />
+        {level < 10 && <ProgressBar progress={levelProgressBarPercentage} label={levelTitles[level]} />}
+      
       </div>
         
       <div className="flex-grow w-full flex items-center justify-center flex-col" style={{height: "110vh", width: "calc(100vw - (40px * 2))", display: "flex", alignItems: "center", justifyContent: "center"}} >
@@ -220,7 +230,7 @@ const CoinPage = () => {
           <div className="mt-12 w-full flex justify-between">
             <div className="flex items-center gap-2">
               <img src={highVoltage} width={40} />
-              <span className="text-2xl font-bold">1 / 10000</span>
+              <span className="text-2xl font-bold">{currentDateCoins.toLocaleString()} / 30,000</span>
             </div>
 
             <div className="flex items-center gap-2">

@@ -81,6 +81,33 @@ export class ApiService {
     }
   }
 
+  public async coinInfoByCurrentDate(): Promise<number> {
+    const token = localStorage.getItem('auth_token');
+    if (!token) {
+      console.error('No token found in localStorage.');
+      return 0;
+    }
+    
+    try {
+      const response = await fetch(`${this.apiUrl}/coin/info/by/current/date`, {
+        method: 'GET',
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch coin info: ${response.statusText}`);
+      }
+
+      const data = await response.text();
+      return parseInt(data);
+    } catch (error) {
+      console.error('Error fetching coin info:', error);
+      throw error;
+    }
+  }
+
   public async setUserLang(lang: string): Promise<void> {
     const token = localStorage.getItem('auth_token');
     if (!token) {
