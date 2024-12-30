@@ -201,7 +201,7 @@ export class ApiService {
     }
   }  
 
-  public async getInviteURL(): Promise<String> {
+  public async getInviteURL(): Promise<string> {
     const token = localStorage.getItem('auth_token');
     if (!token) {
       console.error('No token found in localStorage.');

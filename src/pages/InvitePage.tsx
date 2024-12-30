@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSnackbar } from 'notistack';
+import { ApiService } from '../services/ApiService';
 
 const InvitePage: React.FC = () => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
+  const apiServiceRef = useRef<ApiService>(new ApiService());4
+  const [ inviteUrl, setInviteUrl ] = useState<string>("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    apiServiceRef.current.getInviteURL().then((data) => {
+      setInviteUrl(data);
+    });
+    
+  }, []);
 
   return (
     <div style={styles.container}>
@@ -23,7 +35,7 @@ const InvitePage: React.FC = () => {
         </button>
 
         <button style={styles.button2} onClick={() => {
-          navigator.clipboard.writeText('https://www.google.com').then(() => {
+          navigator.clipboard.writeText(inviteUrl).then(() => {
             enqueueSnackbar('Successfully Copied!', { variant: 'success', anchorOrigin: { vertical: 'top', horizontal: 'center' }, autoHideDuration: 1000 })
           }).catch(() => {
             enqueueSnackbar('Failed to copy text.', { variant: 'error', anchorOrigin: { vertical: 'top', horizontal: 'center' }, autoHideDuration: 1000 })
