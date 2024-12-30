@@ -29,7 +29,9 @@ const InvitePage: React.FC = () => {
       </div>
 
       <div style={styles.footer}>
-        <button style={styles.button} onClick={() => enqueueSnackbar('Successfully Copied!', { variant: 'success', anchorOrigin: { vertical: 'top', horizontal: 'center' }, autoHideDuration: 1000 })}>
+        <button style={styles.button} onClick={() => {
+          window.open("https://t.me/share/url?url=" + inviteUrl + "&text=Check%20this%20out!")
+        }}>
           <span>{t("inviteAFriend")}</span>         
           <img src="./invite-icon.svg" alt="" />
         </button>

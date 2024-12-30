@@ -1,7 +1,7 @@
 export class ApiService {
-  // private readonly localUrl = 'http://192.168.0.100:8080';
-  private readonly prodUrl = 'https://api-lilcoin.ru';
-  private readonly apiUrl = this.prodUrl;
+  private readonly localUrl = 'http://192.168.0.100:8080';
+  // private readonly prodUrl = 'https://api-lilcoin.ru';
+  private readonly apiUrl = this.localUrl;
 
   private socket: WebSocket;
 
