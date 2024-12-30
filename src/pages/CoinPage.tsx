@@ -33,8 +33,8 @@ const CoinPage = () => {
         const user = Telegram.WebApp.initDataUnsafe?.user;
         
         if (user) {
-          const token = await apiServiceRef.current!.getTokenByUsername(user.username);
-          localStorage.setItem("username", user.username);
+          const token = await apiServiceRef.current!.getTokenByUsername(user.id.toString());
+          localStorage.setItem("username", user.id.toString());
           localStorage.setItem("auth_token", token);
     
           setPoints(await apiServiceRef.current!.coinInfo());
