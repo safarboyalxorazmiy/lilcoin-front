@@ -1,14 +1,14 @@
 export class ApiService {
-  private readonly localUrl = 'http://192.168.0.100:8080';
-  // private readonly prodUrl = 'http://62.164.220.205:8080';
-  private readonly apiUrl = this.localUrl;
+  // private readonly localUrl = 'http://192.168.0.100:8080';
+  private readonly prodUrl = 'https://api-lilcoin.ru';
+  private readonly apiUrl = this.prodUrl;
 
   private socket: WebSocket;
 
   constructor() {
     // Dynamically set WebSocket URL based on environment
     const socketUrl = process.env.NODE_ENV === 'production' 
-      ? 'ws://62.164.220.205:8080/ws' 
+      ? 'wss://api-lilcoin.ru/ws' 
       : 'ws://192.168.0.100:8080/ws';
     this.socket = new WebSocket(socketUrl);
 
@@ -44,14 +44,14 @@ export class ApiService {
   }
 
   public increaseCoin(): void {
-    // const username = localStorage.getItem('username');
-    // if (!username) {
-    //   console.error('No username found in localStorage.');
-    //   return;
-    // }
+    const username = localStorage.getItem('username');
+    if (!username) {
+      console.error('No username found in localStorage.');
+      return;
+    }
 
-    this.socket.send("manxorazmiyim");
-    console.log('Sent message to server:', "manxorazmiyim");
+    this.socket.send(username);
+    console.log('Sent message to server:', username);
   }
 
   public async coinInfo(): Promise<number> {
@@ -143,7 +143,7 @@ export class ApiService {
       return false;
     }
 
-    const apiUrl = 'http://192.168.0.100:8080/level/upgrade';
+    const apiUrl = `${this.apiUrl}/level/upgrade`;
 
     try {
       const response = await fetch(apiUrl, {
@@ -171,7 +171,7 @@ export class ApiService {
       return null;
     }
   
-    const apiUrl = 'http://192.168.0.100:8080/level/info';
+    const apiUrl = `${this.apiUrl}/level/info`;
   
     try {
       const response = await fetch(apiUrl, {
@@ -200,4 +200,33 @@ export class ApiService {
       return null;
     }
   }  
+
+  public async getInviteURL(): Promise<String> {
+    const token = localStorage.getItem('auth_token');
+    if (!token) {
+      console.error('No token found in localStorage.');
+      return "";
+    }
+  
+    const apiUrl = `${this.apiUrl}/invite/link/get`;
+  
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      if (!response.ok) {
+        console.error(`Error fetching level info: ${response.status} - ${response.statusText}`);
+        return "";
+      }
+  
+      return await response.text();
+    } catch (error) {
+      console.error('Error during API call:', error);
+      return "";
+    }
+  } 
 }

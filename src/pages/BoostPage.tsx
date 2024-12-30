@@ -7,7 +7,6 @@ const BoostPage = () => {
   const { t } = useTranslation();
   const apiServiceRef = useRef<ApiService>(new ApiService());
   const [level, setLevel] = useState(0);
-  const [successModalVisible, setSuccessModalVisible] = useState<any>(null);
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {

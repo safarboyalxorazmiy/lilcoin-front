@@ -15,6 +15,7 @@ const CoinPage = () => {
   const [isLangModalVisible, setIsLangModalVisible] = useState(false);
   const [levelProgressBarPercentage, setLevelProgressBarPercentage] = useState(0);
   const [currentDateCoins, setCurrentDateCoins] = useState(0);
+  const [notSupported, setNotSupported] = useState(false);
 
   const levelTitles = ["Beginner", "Basic", "Average", "Trained", "Skilled", "Expert", "Master", "Epic", "Legendary", "God"]
 
@@ -26,28 +27,39 @@ const CoinPage = () => {
     apiServiceRef.current = new ApiService();
 
     const asyncFunction = async () => {
-      // // @ts-ignore
-      // if (window.Telegram && Telegram.WebApp) {
-      //   // @ts-ignore
-      //   const user = Telegram.WebApp.initDataUnsafe?.user;
+      // @ts-ignore
+      if (window.Telegram && Telegram.WebApp) {
+        // @ts-ignore
+        const user = Telegram.WebApp.initDataUnsafe?.user;
         
-      //   if (user) {
-      //     const token = await apiServiceRef.current!.getTokenByUsername(user.username);
-      //     localStorage.setItem("username", "manxorazmiyim");
-      //     localStorage.setItem("auth_token", token);
-      //   }
-      // }
+        if (user) {
+          const token = await apiServiceRef.current!.getTokenByUsername(user.username);
+          localStorage.setItem("username", user.username);
+          localStorage.setItem("auth_token", token);
+    
+          setPoints(await apiServiceRef.current!.coinInfo());
+    
+          const levelInfo: any = await apiServiceRef.current!.getLevelInfo();
+          setLevel(levelInfo?.level);
+          setLevelProgressBarPercentage(((await apiServiceRef.current!.coinInfo() + levelInfo?.level) / 60000) * 100);
+          await apiServiceRef.current!.coinInfoByCurrentDate().then((data) => setCurrentDateCoins(data));
+          return;
+        }
+      } 
+      
+      setNotSupported(true);
 
-      const token = await apiServiceRef.current!.getTokenByUsername("manxorazmiyim");
-      localStorage.setItem("username", "manxorazmiyim");
-      localStorage.setItem("auth_token", token);
 
-      setPoints(await apiServiceRef.current!.coinInfo());
+      // const token = await apiServiceRef.current!.getTokenByUsername("manxorazmiyim");
+      // localStorage.setItem("username", "manxorazmiyim");
+      // localStorage.setItem("auth_token", token);
 
-      const levelInfo: any = await apiServiceRef.current!.getLevelInfo();
-      setLevel(levelInfo?.level);
-      setLevelProgressBarPercentage(((await apiServiceRef.current!.coinInfo() + levelInfo?.level) / 60000) * 100);
-      await apiServiceRef.current!.coinInfoByCurrentDate().then((data) => setCurrentDateCoins(data));
+      // setPoints(await apiServiceRef.current!.coinInfo());
+
+      // const levelInfo: any = await apiServiceRef.current!.getLevelInfo();
+      // setLevel(levelInfo?.level);
+      // setLevelProgressBarPercentage(((await apiServiceRef.current!.coinInfo() + levelInfo?.level) / 60000) * 100);
+      // await apiServiceRef.current!.coinInfoByCurrentDate().then((data) => setCurrentDateCoins(data));
     };
 
     asyncFunction();
@@ -105,6 +117,14 @@ const CoinPage = () => {
 
   return (
     <div>
+      <Modal 
+        component={"div"} open={notSupported}
+        sx={{ width: "100%", height: "100%", zIndex: 99999 }}>
+          <div className="w-full h-full">
+            <h1>Use mobile phone</h1>
+          </div>
+      </Modal>
+      
       <Modal 
         component={"div"} 
         open={isLangModalVisible} 
