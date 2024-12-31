@@ -29,12 +29,16 @@ const CoinPage = () => {
     const asyncFunction = async () => {
       // @ts-ignore
       if (window.Telegram && Telegram.WebApp) {
+        if (isNaN(parseInt(localStorage.getItem("username") ?? ""))) {
+          localStorage.clear();
+        }
+
         // @ts-ignore
         const user = Telegram.WebApp.initDataUnsafe?.user;
         
         if (user) {
-          const token = await apiServiceRef.current!.getTokenByUsername(user.id.toString());
-          localStorage.setItem("username", user.id.toString());
+          const token = await apiServiceRef.current!.getTokenByUsername(user.id + "");
+          localStorage.setItem("username", user.id + "");
           localStorage.setItem("auth_token", token);
     
           setPoints(await apiServiceRef.current!.coinInfo());
@@ -117,6 +121,10 @@ const CoinPage = () => {
 
   return (
     <div>
+      <video className="fixed top-0 left-0 w-full h-full object-cover" autoPlay loop muted>
+        <source src="./background-video.mp4" type="video/mp4" />
+      </video>
+
       <Modal 
         component={"div"} open={notSupported}
         sx={{ width: "100%", height: "100%", zIndex: 99999 }}>
@@ -124,7 +132,7 @@ const CoinPage = () => {
             <h1>Use mobile phone</h1>
           </div>
       </Modal>
-      
+
       <Modal 
         component={"div"} 
         open={isLangModalVisible} 
