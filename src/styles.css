@@ -4968,3 +4968,542 @@ input:-internal-autofill-selected {
 .d-none {
   display: none;
 }
+
+.menu-icon {
+  display: none;
+}
+
+.button-a2:hover {
+  cursor: pointer;
+  background-color: #242424;
+  color: #a3ff32!important;
+  border-color: #191919;
+  transition: all 0.4s ease-in-out;
+}
+
+.button-a2:hover .get-started {
+  color: #a3ff32!important;
+}
+
+@media only screen and (max-width: 930px) {
+  .menu-icon {
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    display: block;
+    margin-right: 40px;
+    padding: 25px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .menu-icon:hover {
+    background-color: #242424;
+  }
+
+  .navbar-1 {
+    margin-left: 40px;
+  }
+
+  .hero .container {
+    padding-top: 0;
+  }
+
+  .logo {
+    width: 170px;
+  }
+
+  .wrapper {
+    z-index: 5;
+    position: static;
+    background-color: #242424;
+    width: 100%;
+    height: 100vh;
+    top: 100px;
+    left: 0;
+    height: 100vh;
+  }
+
+  .navbar {
+    position: fixed;
+    /* height: 100vh; */
+  }
+
+  .item-r {
+    display: block;
+    position: fixed;
+    z-index: 99999;
+    bottom: 20px;
+    height: 20vh;
+    width: 100%;
+    left: 0;
+  }
+
+  .item-r .button {
+    width: 100%;
+  }
+
+  .item-r .button .t-signin {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .navbar-a {
+    display: block;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+  }
+
+  
+  .button-13 {
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .navbar-a {
+    width: 100%;
+    left: 0;
+    top: 200px;
+  }
+
+  .tab-b {
+    width: 100%;
+    left: 0;
+  }
+
+  .tab-d {
+    width: 100%;
+    left: 0;
+  }
+
+  .t-menu {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+
+  .t-menu-c {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+
+  .t-menu-e {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+
+  .dropdown:hover .tab-b {
+    display: none;
+  }
+
+  .dropdown:hover .tab-d {
+    display: none;
+  }
+
+  .item-r .button {
+    padding: 0!important;
+  }
+
+  .item-r .button-13 {
+    padding: 0!important;
+  }
+
+  .d-none {
+    display: none!important;
+  }
+
+  .features-42 {
+    padding: 34px 34px 34px 34px;
+  }
+
+  .t-feature-subtitle {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .t-feature-subtitle-58 {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .truck-driving-techniques {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .seamless-learning {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .cta {
+    padding: 34px 34px 34px 34px;
+    align-items: flex-start;
+  }
+
+  .m-image-2b {
+    min-width: 100%!important;
+  }
+
+  .t-title-26 {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .t-content {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .t-title { 
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .t-subtitle {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .badge {
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .features {
+    padding: 34px 34px 34px 34px;
+    align-items: flex-start;
+  }
+
+  .container-a3 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-review-ae {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rating-a6 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .user-name-af {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .t-subtitle-2f {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .t-title-2e {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+  }
+
+  .container-60 {
+    flex-wrap: wrap;
+    width: 60%;
+  }
+
+  .container-30 {
+    flex-wrap: wrap;
+    width: 60%;
+  }
+
+  .m-image-41 {
+    min-width: 100%;
+    height: auto;
+  }
+
+  .container-27 {
+    min-width: 40%;    
+    flex-wrap: wrap;
+    height: auto;
+  }
+  
+  .container-5e {
+    min-width: 40%;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .container-59 {
+    min-width: 40%;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .container-4c {
+    min-width: 40%;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .container-52 {
+    min-width: 40%;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .t-feature-title-51 {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+    height: auto;
+  }
+
+  .t-feature-subtitle-58 {
+    width: 60%!important;
+    height: auto;
+    white-space: wrap;
+    height: auto;
+  }
+
+  .t-feature-title-5d {
+    height: auto;
+  }
+
+  .truck-driving-techniques {
+    height: auto;
+  }
+
+  .text-5c {
+    height: auto;
+  }
+
+  .container-27 {
+    width: 60%;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .badge-24 {
+    width: 60%;
+    height: auto;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  .t-slogan {
+    width: 60%;
+    flex-wrap: wrap;
+    white-space: wrap;
+    height: auto;
+    min-height: auto;
+  }
+
+  .t-title-26 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container-4c {
+    flex-direction: column;
+  }
+
+  .container-52 {
+    flex-direction: column;
+  }
+
+  .container-59 {
+    flex-direction: column;
+    display: block;
+  }
+
+  .container-5e {
+    flex-direction: column;
+  }
+
+}
+
+@media only screen and (max-width: 500px) {
+  .item-90 {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .item-92 {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .item-94 {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .user-friendly-navigation {
+    width: 100%;
+    height: auto;
+    white-space: pre-wrap;
+  }
+
+  .interactive-video-tutorials {
+    width: 100%;
+    height: auto;
+    white-space: pre-wrap;
+  }
+
+  .container-8e {
+    height: 900px;
+  }
+
+  .pricing-8f {
+    height: auto!important;
+  }
+
+  .items-97 {
+    height: auto!important;
+  }
+
+  .items {
+    height: auto!important;
+  }
+
+  .pricing-96 {
+    height: auto!important;
+  }
+
+  .user-friendly-navigation {
+    width: 80%;
+    height: auto;
+    white-space: pre-wrap;
+  }
+
+  .item-98 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-9a {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-9c {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-9e {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pricing-a0 {
+    flex-wrap: wrap;
+  }
+
+  .starter-package {
+    height: auto;
+  }
+
+  .text-a1 {
+    height: auto;
+  }
+
+  .for-person-use-only {
+    height: auto;
+  }
+
+  .container-8d {
+    height: 1300px;
+  }
+
+  .pricing {
+    padding: 34px 34px 34px 34px;
+  }
+
+  .button-a2 {
+    width: 100%;
+  }
+
+  .for-person-use-only {
+    width: 80%;
+    white-space: pre-wrap;
+  }
+
+  .button-a2 {
+    width: 100%;
+  }
+
+  .text-a1 {
+    flex-wrap: wrap;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .monthly-subscription {
+    width: max-content;
+    white-space: wrap;
+  }
+
+  .pricing-a0 {
+    min-width: 100%;
+  }
+
+  .user-friendly-navigation {
+    width: 100%;
+    white-space: pre-wrap;
+  }
+
+  .container-8e {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .t-copyright {
+    width: 100%;
+    min-width: 100%;
+    white-space: pre-wrap;
+    height: auto;
+  }
+
+  .container-e3 {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .footer-ce {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .footer {
+    width: 100%;
+    min-width: 100%;
+  }
+}

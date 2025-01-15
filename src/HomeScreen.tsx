@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FaThumbsUp } from "react-icons/fa";
 import "./styles.css";
 import 'animate.css';
+import menuIcon from "./images/menu-icon.svg";
 
 export default function Home() {
   // Refs for scrolling to sections
@@ -19,6 +20,8 @@ export default function Home() {
   const [city, setCity] = useState("");
   const [visited, setVisited] = useState(false);
   const [contactInterestHandled, setContactInterestHandled] = useState(false);
+
+  const [menuOpened, setMenuOpened] = useState(false); 
 
   // Set visited to true on component mount
   useEffect(() => {
@@ -137,6 +140,7 @@ export default function Home() {
 
   return (
     <>
+      <div className={`wrapper ${menuOpened ? '' : 'd-none'}`}></div>
       {/* Hero Section */}
       <div className="hero">
         <div className="darker"></div>
@@ -144,7 +148,7 @@ export default function Home() {
         <div className="navbar">
           <div className="navbar-1">
             <div className="logo"></div>
-            <div className="navbar-a">
+            <div className={`navbar-a ${menuOpened ? '' : 'd-none'}`}>
               <div className="tab">
                 <span className="t-menu">Truck driving classes</span>
                 <ul className="dropdown animate__animated animate__fadeIn animate__faster">
@@ -156,9 +160,13 @@ export default function Home() {
               <a onClick={scrollToAboutUs} className="tab-d"><span className="t-menu-e">About us</span></a>
             </div>
           </div>
-          <div className="item-r">
+          <div className={`item-r ${menuOpened ? '' : 'd-none'}`}>
             <div className="button"><span className="t-signin">Sign In</span></div>
             <div className="button-13"><span className="t-signup">Download the app now</span></div>
+          </div>
+
+          <div className="menu-icon" onClick={() => setMenuOpened(!menuOpened)}>
+            <img src={menuIcon} alt="" />
           </div>
         </div>
 
@@ -560,7 +568,7 @@ export default function Home() {
                   truck teaching skills through our innovative mobile app.
                   Experience the convenience and effectiveness firsthand!
                 </span>
-                <span className="user-name-af">Liam Johnson</span>
+                <span className="user-name-af">Marufjon Sayfullaev</span>
               </div>
             </div>
           </div>
@@ -623,9 +631,9 @@ export default function Home() {
                     <div className="vector-ef"></div>
                   </div>
                 </div>
-                <span className="t-company-name">Truck Master Education</span>
+                <span className="t-company-name">TuranCDL School</span>
               </div>
-              <span className="t-copyright">© 2023 Truck Master Education. All Rights Reserved.</span>
+              <span className="t-copyright">©2025 TuranCDL School. All Rights Reserved.</span>
             </div>
           </div>
         </div>
