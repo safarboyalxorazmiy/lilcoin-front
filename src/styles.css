@@ -4866,6 +4866,10 @@ input:-internal-autofill-selected {
   background-position: center center;
 }
 
+.back-icon {
+  display: none;
+}
+
 @media only screen and (max-width: 480px) {
   .navbar .item-r {
     display: none;
@@ -4965,10 +4969,6 @@ input:-internal-autofill-selected {
   color: #FFF;
 }
 
-.d-none {
-  display: none;
-}
-
 .menu-icon {
   display: none;
 }
@@ -4987,6 +4987,15 @@ input:-internal-autofill-selected {
 
 @media only screen and (max-width: 930px) {
   .menu-icon {
+    cursor: pointer;
+  }
+
+  .back-icon {
+    display: block;
+    rotate: 180deg;
+    position: absolute;
+    top: 70px;
+    left: 50px;
     cursor: pointer;
   }
 
@@ -5505,5 +5514,13 @@ input:-internal-autofill-selected {
   .footer {
     width: 100%;
     min-width: 100%;
+  }
+
+  .navbar-1 {
+    justify-content: flex-end;
+  }
+
+  .navbar {
+    flex-direction: row-reverse;
   }
 }

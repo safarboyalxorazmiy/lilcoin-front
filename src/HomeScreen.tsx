@@ -4,6 +4,7 @@ import { FaThumbsUp } from "react-icons/fa";
 import "./styles.css";
 import 'animate.css';
 import menuIcon from "./images/menu-icon.svg";
+import backIcon from './images/back-icon.svg';
 
 export default function Home() {
   // Refs for scrolling to sections
@@ -140,7 +141,11 @@ export default function Home() {
 
   return (
     <>
-      <div className={`wrapper ${menuOpened ? '' : 'd-none'}`}></div>
+      <div className={`wrapper ${menuOpened ? '' : 'd-none'}`}>
+        <img src={backIcon} className={`back-icon ${menuOpened ? '' : 'd-none'}`} alt="" onClick={() => {
+          setMenuOpened(!menuOpened);
+        }} />
+      </div>
       {/* Hero Section */}
       <div className="hero">
         <div className="darker"></div>
