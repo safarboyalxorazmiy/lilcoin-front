@@ -320,7 +320,7 @@ export default function Home() {
         </div>
 
         {/* CTA Section */}
-        <div className="cta">
+        {/* <div className="cta">
           <div className="m-image-2b"></div>
 
           <div className="container-23">
@@ -344,89 +344,26 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Class A Section */}
         <div className="features" ref={classADivRef}>
           <div className="container-2c">
             <div className="text-2d">
-              <span className="t-title-2e">Master Truck Driving with Ease</span>
-              <span className="t-subtitle-2f">
-                Revolutionize your learning experience with our intuitive mobile app.
-              </span>
+              <span className="t-title-2e">“Professional CDL training school dedicated to preparing safe and skilled drivers for the trucking industry. Comprehensive programs, experienced instructors, and hands-on training to help you achieve your goals.”</span>
             </div>
-            <div className="container-30">
-              <div className="container-31">
-                <div className="container-md">
-                  <div className="lighting"><div className="vector-32"></div></div>
-                </div>
-                <span className="t-feature-title">Interactive Video Tutorials</span>
-              </div>
-              <div className="container-33">
-                <div className="container-md-34">
-                  <div className="image"><div className="vector-35"></div></div>
-                </div>
-                <span className="t-feature-title-36">Immersive Audio Lessons</span>
-              </div>
-              <div className="container-37">
-                <div className="container-md-38">
-                  <div className="lock"><div className="vector-39"></div></div>
-                </div>
-                <span className="t-feature-title-3a">Comprehensive PDF Guides</span>
-              </div>
-              <div className="container-3b">
-                <div className="container-md-3c">
-                  <div className="folder"><div className="vector-3d"></div></div>
-                </div>
-                <span className="t-feature-title-3e">User-Friendly Navigation</span>
-              </div>
-            </div>
-            <div className="button-3f">
-              <span className="t-learn-more-40">Discover More</span>
-            </div>
+            
           </div>
           <div className="m-image-41"></div>
         </div>
 
         {/* Class B Section */}
-        <div className="features" ref={classBDivRef}>
-          <div className="m-image-41"></div>
+        <div className="features mb" ref={classBDivRef}>
+          <div className="m-image-41-2"></div>
 
           <div className="container-2c">
             <div className="text-2d">
-              <span className="t-title-2e">Master Truck Driving with Ease</span>
-              <span className="t-subtitle-2f">
-                Revolutionize your learning experience with our intuitive mobile app.
-              </span>
-            </div>
-            <div className="container-30">
-              <div className="container-31">
-                <div className="container-md">
-                  <div className="lighting"><div className="vector-32"></div></div>
-                </div>
-                <span className="t-feature-title">Interactive Video Tutorials</span>
-              </div>
-              <div className="container-33">
-                <div className="container-md-34">
-                  <div className="image"><div className="vector-35"></div></div>
-                </div>
-                <span className="t-feature-title-36">Immersive Audio Lessons</span>
-              </div>
-              <div className="container-37">
-                <div className="container-md-38">
-                  <div className="lock"><div className="vector-39"></div></div>
-                </div>
-                <span className="t-feature-title-3a">Comprehensive PDF Guides</span>
-              </div>
-              <div className="container-3b">
-                <div className="container-md-3c">
-                  <div className="folder"><div className="vector-3d"></div></div>
-                </div>
-                <span className="t-feature-title-3e">User-Friendly Navigation</span>
-              </div>
-            </div>
-            <div className="button-3f">
-              <span className="t-learn-more-40">Discover More</span>
+              <span className="t-title-2e">“Top-notch CDL school offering professional truck driver training to help you start or advance your career in the transportation industry. Flexible schedules, expert instructors, and hands-on training ensure your success. Get your CDL with confidence!”</span>
             </div>
           </div>
         </div>
