@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   server: {
-    host: '192.168.0.103',
+    host: '169.254.121.203',
     port: 8083, 
   },
 

@@ -70,6 +70,8 @@ export default function Home() {
     if (packagesDivRef.current) {
       packagesDivRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
+    setMenuOpened(false)
   };
 
   // Scroll to About Us section
@@ -77,6 +79,8 @@ export default function Home() {
     if (aboutUsDivRef.current) {
       aboutUsDivRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
+    setMenuOpened(false)
   };
 
   // Scroll to Class A section
@@ -84,6 +88,8 @@ export default function Home() {
     if (classADivRef.current) {
       classADivRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    
+    setMenuOpened(false)
   };
 
   // Scroll to Class B section
@@ -91,6 +97,8 @@ export default function Home() {
     if (classBDivRef.current) {
       classBDivRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
+    setMenuOpened(false)
   };
 
   // Handle form submission
@@ -155,14 +163,14 @@ export default function Home() {
             <div className="logo"></div>
             <div className={`navbar-a ${menuOpened ? '' : 'd-none'}`}>
               <div className="tab">
-                <span className="t-menu">Truck driving classes</span>
+                <span className="t-menu" onClick={() => setMenuOpened(!menuOpened)}>Truck driving classes</span>
                 <ul className="dropdown animate__animated animate__fadeIn animate__faster">
                   <li><a onClick={scrollToClassA} className="class-a">Class A</a></li>
                   <li><a onClick={scrollToClassB} className="class-b">Class B</a></li>
                 </ul>
               </div>
               <a onClick={scrollToPackages} className="tab-b"><span className="t-menu-c">Packages</span></a>
-              <a onClick={scrollToAboutUs} className="tab-d"><span className="t-menu-e">About us</span></a>
+              <a onClick={scrollToAboutUs} className="tab-d" ><span className="t-menu-e">About us</span></a>
             </div>
           </div>
           <div className={`item-r ${menuOpened ? '' : 'd-none'}`}>

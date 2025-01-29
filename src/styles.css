@@ -4876,6 +4876,10 @@ ul.dropdown li:hover a {
   .navbar-a {
     display: none;
   }
+
+  .features {
+    height: 965px!important;
+  }
 }
 
 input:-internal-autofill-selected {
@@ -5402,6 +5406,7 @@ input:-internal-autofill-selected {
 }
 
 @media only screen and (max-width: 500px) {
+  
   .item-90 {
     align-items: flex-start;
     flex-direction: column;
@@ -5572,5 +5577,9 @@ input:-internal-autofill-selected {
 
   .navbar {
     flex-direction: row-reverse;
+  }
+
+  ul.dropdown {
+    display: none!important;
   }
 }
