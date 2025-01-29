@@ -5582,4 +5582,12 @@ input:-internal-autofill-selected {
   ul.dropdown {
     display: none!important;
   }
+
+  .container-2c {
+    min-width: 100%!important;
+  }
+
+  .t-title-2e {
+    font-size: 24px!important;
+  }
 }

@@ -32,11 +32,11 @@ export default function Home() {
   }, []);
 
   // Handle visiting logic when visited is true
-  // useEffect(() => {
-  //   if (visited) {
-  //     handleVisiting();
-  //   }
-  // }, [visited]);
+  useEffect(() => {
+    if (visited) {
+      handleVisiting();
+    }
+  }, [visited]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
