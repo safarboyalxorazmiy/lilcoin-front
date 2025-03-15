@@ -32,11 +32,11 @@ export default function Home() {
   }, []);
 
   // Handle visiting logic when visited is true
-  useEffect(() => {
-    if (visited) {
-      handleVisiting();
-    }
-  }, [visited]);
+  // useEffect(() => {
+  //   if (visited) {
+  //     handleVisiting();
+  //   }
+  // }, [visited]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -145,6 +145,7 @@ export default function Home() {
       },
       body: JSON.stringify({ ip: data.ip, city: data.city, region: data.region }),
     });
+    
   };
 
   return (
@@ -558,7 +559,7 @@ export default function Home() {
                 <span className="t-social-item">Facebook</span>
                 <span className="t-social-item-df">Twitter</span>
                 <span className="t-social-item-e0">LinkedIn</span>
-                <span className="t-social-item-e1">Instagram</span>
+                <a href="https://www.instagram.com/turancdlschool?igsh=MWdpNnA2M2lna2NxeA%3D%3D&utm_source=qr" className="t-social-item-e1">Instagram</a>
                 <span className="t-social-item-e2">YouTube</span>
               </div>
             </div>

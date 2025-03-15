@@ -5591,3 +5591,7 @@ input:-internal-autofill-selected {
     font-size: 24px!important;
   }
 }
+
+.item-de a {
+  text-decoration: none;
+}
