@@ -5,6 +5,7 @@ import "./styles.css";
 import 'animate.css';
 import menuIcon from "./images/menu-icon.svg";
 import backIcon from './images/back-icon.svg';
+import ImageSwiper from './ImageSwiper';
 
 export default function Home() {
   // Refs for scrolling to sections
@@ -25,18 +26,18 @@ export default function Home() {
   const [menuOpened, setMenuOpened] = useState(false); 
 
   // Set visited to true on component mount
-  useEffect(() => {
-    if (!visited) {
-      setVisited(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!visited) {
+  //     setVisited(true);
+  //   }
+  // }, []);
 
   // Handle visiting logic when visited is true
-  // useEffect(() => {
-  //   if (visited) {
-  //     handleVisiting();
-  //   }
-  // }, [visited]);
+  useEffect(() => {
+    if (visited) {
+      handleVisiting();
+    }
+  }, [visited]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -166,8 +167,8 @@ export default function Home() {
               <div className="tab">
                 <span className="t-menu" onClick={() => setMenuOpened(!menuOpened)}>Truck driving classes</span>
                 <ul className="dropdown animate__animated animate__fadeIn animate__faster">
-                  <li><a onClick={scrollToClassA} className="class-a">Class A</a></li>
-                  <li><a onClick={scrollToClassB} className="class-b">Class B</a></li>
+                  <li onClick={scrollToClassA} ><a className="class-a">Class A</a></li>
+                  <li onClick={scrollToClassB}><a className="class-b">Class B</a></li>
                 </ul>
               </div>
               <a onClick={scrollToPackages} className="tab-b"><span className="t-menu-c">Packages</span></a>
@@ -327,6 +328,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <ImageSwiper />
 
         {/* CTA Section */}
         {/* <div className="cta">
